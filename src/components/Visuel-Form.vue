@@ -7,17 +7,16 @@ import { downloadImage } from './untils'
 export default {
   name: 'VisuelForm',
   components: {
-    VisuelItem,
+    VisuelItem
   },
   setup() {
-
-    const store = useStore();
+    const store = useStore()
     const url_image = ref(computed(() => store.state.image))
 
     const data = ref({
-      name : null,
-      citation : null
-    });
+      name: null,
+      citation: null
+    })
 
     const declancheClick = (e) => {
       e.preventDefault()
@@ -26,7 +25,7 @@ export default {
     }
 
     const submit = (e) => {
-      e.preventDefault();
+      e.preventDefault()
       downloadImage(data.value.name)
     }
 
@@ -42,12 +41,18 @@ export default {
 
 <template>
   <div class="visuel-form container my-5">
-    <div class="visuel"><VisuelItem :infos="data"/></div>
+    <div class="visuel"><VisuelItem :infos="data" /></div>
     <div class="form">
       <form class="container">
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Nom & Prénom</label>
-          <input type="text" class="form-control" id="exampleInputEmail1" v-model="data.name" required/>
+          <input
+            type="text"
+            class="form-control"
+            id="exampleInputEmail1"
+            v-model="data.name"
+            required
+          />
         </div>
         <div class="mb-3">
           <label for="citation" class="form-label">Citation</label>

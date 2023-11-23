@@ -1,15 +1,47 @@
 <script>
-import IconQuota from './icons/Icon-Quota.vue';
+import IconQuota from './icons/Icon-Quota.vue'
+import { ref } from 'vue'
+import { useStore } from 'vuex'
 
 export default {
   name: 'VisuelItem',
-  components : {
+  components: {
     IconQuota
+  },
+  props: {
+    infos: String
+  },
+  setup() {
+    const store = useStore()
+    const url_image = ref(null)
+
+    const InputChange = (event) => {
+      const name_file = event.target.files[0]
+
+      if (name_file) {
+        store.dispatch('ChangeImage', name_file.name)
+
+        const reader = new FileReader()
+        reader.onload = (e) => {
+          const selectedFile = e.target.result
+          url_image.value = selectedFile
+        }
+        reader.readAsDataURL(name_file)
+      } else {
+        url_image.value = null
+        store.dispatch('ChangeImage', "Une erreur c'est produite")
+      }
+    }
+
+    return {
+      InputChange,
+      url_image
+    }
   }
 }
 </script>
 <template>
-  <div class="container-visuel">
+  <div class="container-visuel" id="visuel">
     <div class="header">
       <img src="../assets/mastercard.png" alt="mastercard" />
       <img src="../assets/baoaba.png" alt="baobab" />
@@ -19,17 +51,20 @@ export default {
         <h1 class="text-center titre">AVENTURE DU SAVOIR SUR BAOBAB</h1>
         <div class="content">
           <div class="item-img">
-            <img src="../assets/rabiatou.jpg" alt="profil" />
-            <h1 class="mt-3 fw-bold text-center">TOHOUEGNON DEDJINOU</h1>
+            <img :src="url_image" alt="profil" v-if="url_image" />
+            <img src="../assets/rabiatou.jpg" alt="profil" v-if="!url_image" />
+            <h1 class="mt-3 fw-bold text-center">{{ infos.name ?? 'Bob Marley' }}</h1>
           </div>
           <div class="item-text">
             <div>
               <p class="fw-medium">
                 <IconQuota />
-                Te ne sais jamais à quel point tu es fort , jusqu'au jour où être fort reste ta
-                seule opnion <IconQuota class="rotate"/>
+                {{
+                  infos.citation ??
+                  "Te ne sais jamais à quel point tu es fort , jusqu'au jour où être fort reste ta seule opnion"
+                }}<IconQuota class="rotate" />
               </p>
-              <i>Bob Marley</i>
+              <i>{{ infos.name ?? 'Bob Marley' }}</i>
             </div>
             <p class="fw-bold">Challenge bien terminé et certificat reçu avec succès.</p>
           </div>
@@ -44,6 +79,7 @@ export default {
       </div>
     </div>
   </div>
+  <input type="file" id="file2" @change="InputChange" accept="image/*" hidden />
 </template>
 <style scoped>
 .container-visuel {

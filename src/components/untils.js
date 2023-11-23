@@ -8,7 +8,8 @@ export function downloadImage(name) {
     removeContainer: true
   }).then((canvas) => {
     const link = document.createElement('a')
-    link.download = name
+    if (name) link.download = name
+    else link.download = 'visuel'
     link.href = canvas.toDataURL('image/png')
     link.click()
   })

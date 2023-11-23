@@ -1,6 +1,6 @@
 <script>
 export default {
-  name : "IconQuota"
+  name: 'IconQuota'
 }
 </script>
 <template>
