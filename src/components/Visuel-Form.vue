@@ -134,7 +134,7 @@ export default {
 }
 @media (max-width: 500px) {
   .visuel-form .visuel {
-    zoom: 0.56;
+    zoom: 0.50;
   }
   .visuel-form .form .upload {
     width: 100%;
