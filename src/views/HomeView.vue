@@ -1,9 +1,7 @@
 <script setup>
-import FormItem from '../components/Form-Item.vue';
+import VisuelForm from '../components/Visuel-Form.vue'
 </script>
 
 <template>
-  <main>
-     <FormItem />
-  </main>
+  <VisuelForm />
 </template>
