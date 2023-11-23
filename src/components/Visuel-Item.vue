@@ -88,7 +88,6 @@ export default {
   display: flex;
   flex-direction: column;
   zoom: 0.6;
-  border: 1px solid red;
 }
 .container-visuel .header {
   width: 100%;
