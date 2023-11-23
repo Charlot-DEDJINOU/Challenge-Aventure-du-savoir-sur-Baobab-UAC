@@ -147,7 +147,7 @@ export default {
   max-width: 470px;
   min-height: 450px;
   border: 15px solid #f9d71e;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
 }
 .container-visuel .body .child .content .item-text {
