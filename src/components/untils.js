@@ -1,7 +1,7 @@
 import html2canvas from 'html2canvas'
 
 export function downloadImage(name) {
-  const element = document.getElementById("visuel")
+  const element = document.getElementById('visuel')
 
   html2canvas(element, {
     backgroundColor: null,

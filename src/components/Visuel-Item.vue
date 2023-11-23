@@ -1,10 +1,8 @@
-<script >
+<script>
 export default {
-    name : "VisuelItem"
+  name: 'VisuelItem'
 }
 </script>
 <template>
-    <div>
-
-    </div>
+  <div></div>
 </template>
