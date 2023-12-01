@@ -88,6 +88,7 @@ export default {
   display: flex;
   flex-direction: column;
   zoom: 0.6;
+  z-index: 10;
 }
 .container-visuel .header {
   width: 100%;
@@ -145,7 +146,10 @@ export default {
 }
 .container-visuel .body .child .content .item-img img {
   width: 470px;
-  height: 450px;
+  max-width: 100%;
+  max-height: 450px;
+  height: auto;
+  border-radius: 50%;
   border: 15px solid #f9d71e;
   object-fit: cover;
   object-position: center;
