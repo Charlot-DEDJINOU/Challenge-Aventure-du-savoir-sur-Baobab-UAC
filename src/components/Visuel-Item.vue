@@ -69,7 +69,7 @@ export default {
             <p class="fw-bold">Challenge bien terminé et certificat reçu avec succès.</p>
           </div>
         </div>
-        <p class="invitation">Pour ne plus rater ce challenge exceptionnel</p>
+        <p class="invitation text-center">Pour ne plus rater ce challenge exceptionnel</p>
       </div>
     </div>
     <div class="footer">
