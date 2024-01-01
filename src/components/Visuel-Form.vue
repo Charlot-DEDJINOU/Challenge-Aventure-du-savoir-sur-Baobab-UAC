@@ -42,7 +42,7 @@ export default {
 <template>
   <div class="visuel-form container my-5">
     <div class="visuel"><VisuelItem :infos="data" /></div>
-    <div class="form mt-5">
+    <div class="form mt-4">
       <form class="container">
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Nom & Prénom</label>
@@ -95,7 +95,7 @@ export default {
   justify-content: space-between;
 }
 .visuel-form .form {
-  width: 45%;
+  width: 50%;
 }
 .visuel-form .visuel {
   width: 50%;
