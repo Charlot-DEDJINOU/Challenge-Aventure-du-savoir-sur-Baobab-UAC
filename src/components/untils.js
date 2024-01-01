@@ -1,16 +1,27 @@
-import html2canvas from 'html2canvas'
+import { toPng } from 'html-to-image'
 
-export function downloadImage(name) {
-  const element = document.getElementById('visuel')
+export const downloadImage = async (name) => {
+  const visuel = document.getElementById('visuel');
+   
+   const visuelDownload = visuel ;
+   console.log(visuelDownload.style.zoom)
+   visuelDownload.style.zoom = 1 ;
 
-  html2canvas(element, {
-    backgroundColor: null,
-    removeContainer: true
-  }).then((canvas) => {
-    const link = document.createElement('a')
+   console.log(visuelDownload.style.zoom)
+
+  await toPng(visuelDownload, { quality: 1 })
+  .then(function (dataUrl) {
+    var link = document.createElement('a');
     if (name) link.download = name
     else link.download = 'visuel'
-    link.href = canvas.toDataURL('image/png')
-    link.click()
+    link.href = dataUrl;
+    link.click();
   })
-}
+  .catch (function(error)  {
+    console.error('Erreur lors du téléchargement de l\'image :', error);
+  })
+  .finally(function() {
+      visuelDownload.style.zoom = 0.6 ;
+  })
+};
+
