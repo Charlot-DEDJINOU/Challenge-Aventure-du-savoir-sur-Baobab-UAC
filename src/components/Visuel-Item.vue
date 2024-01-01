@@ -146,9 +146,7 @@ export default {
 }
 .container-visuel .body .child .content .item-img img {
   width: 470px;
-  max-width: 100%;
-  max-height: 450px;
-  height: auto;
+  height: 470px;
   border-radius: 50%;
   border: 15px solid #f9d71e;
   object-fit: cover;
